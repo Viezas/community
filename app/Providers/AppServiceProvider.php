@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\View\Components\Post\Form;
+use App\View\Components\Post\Post;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Blade::component('post-form', Form::class);
+        Blade::component('post', Post::class);
     }
 }

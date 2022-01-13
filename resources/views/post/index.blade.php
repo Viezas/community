@@ -21,7 +21,10 @@
         </style>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     </head>
-    <body>
-        <a href="{{ route('timeline.index') }}">Timeline</a>
+    <body class="container w-75">
+      <x-post-form></x-post-form>
+      @foreach ($posts as $post)
+        <x-post :post="$post"></x-post>
+      @endforeach
     </body>
 </html>
