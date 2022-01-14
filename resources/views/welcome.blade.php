@@ -18,10 +18,45 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
+            .logo {
+                width: 2rem;
+                height: 2rem;
+                align-items: middle;
+            }
+            .mr05 {
+                margin-right: 2rem;
+            }
         </style>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     </head>
     <body>
-        <button type="button" class="btn btn-primary">Primary</button>
+        <!-- Header -->
+        <x-nav></x-nav>
+        <div class="mx-4">
+            <!-- Home page -->
+            <h1 class="m-4 fw-bold text-primary">We are ProLink</h1>
+            <div>
+                <p>We believe in a more connected world, where everyone can chat and collaborate remotely.</p>
+                <p>
+                    Our web app will allow you to create your own personal community in order to improve the relationships, engagement, collaboration and productivity of your people.</br>
+                    Share your succes, your career, your projects as well as compliment those of your colleagues.
+                </p>
+                <p class="fs-3 fw-bold text-center">
+                    Join and show us how far you can go
+                </p>
+                <p>We are the best social app for every organization to show your best realizations and leading the way to a better world</p>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="mr05 p-3 rounded border border-light bg-primary text-white">  
+                    Get our app on</br>
+                    <img class="logo" src="img/google-play.png" alt="logo google play"> Android
+                </button>
+                <button class="p-3 rounded border border-light bg-primary text-white">  
+                    Get our app on</br>
+                    <img class="logo" src="img/apple-logo.png" alt="logo apple"> Apple 
+                </button>
+            </div>
+        </div>
+        <x-footer></x-footer>
     </body>
 </html>
