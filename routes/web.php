@@ -21,6 +21,7 @@ Route::prefix('timeline')->name('timeline.')->middleware('auth')->group(function
     Route::get('/', [PostController::class, 'index'])->name('index');
     Route::post('/like/{post_id}', [PostController::class, 'like'])->name('like');
     Route::post('/store', [PostController::class, 'store'])->name('store');
+    Route::delete('/destroy/{post_id}', [PostController::class, 'destroy'])->name('destroy');
 });
 
 Route::get('/dashboard', function () {

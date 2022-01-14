@@ -47,4 +47,10 @@ class PostController extends Controller
         
         return back()->with('success', 'Post liké avec success');
     }
+
+    public function destroy(Int $post_id)
+    {
+        Post::where('id', $post_id)->delete();
+        return back()->with('success', 'Post retiré avec success');
+    }
 }
