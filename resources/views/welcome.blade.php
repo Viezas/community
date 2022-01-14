@@ -22,11 +22,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     </head>
     <body class="mx-4">
-    <div class="content">
         <!-- Header -->
-            <div class="d-flex justify-content-between">
-                <div class="m-0 d-flex align-items-center">
-                    <p class="fw-bold">ProLink</p>
+        <div>
+            <div class="d-flex justify-content-between shadow-sm">
+                <div class="d-flex align-items-center">
+                    <p class=" m-0 fw-bold text-primary">ProLink</p>
                 </div>
                 <nav class="d-flex">
                     <div class="d-flex justify-content-around">
@@ -37,14 +37,78 @@
             </div>
         </div>
         <!-- Home page -->
-        <h1 class="m-4">We are ProLink</h1>
+        <h1 class="m-4 fw-bold text-primary">We are ProLink</h1>
         <div>
             <p>We believe in a more connected world, where everyone can chat and collaborate remotely.</p>
             <p>
                 Our web app will allow you to create your own personal community in order to improve the relationships, engagement, collaboration and productivity of your people.</br>
-                ProLink allows you to share your succes, your career in the company,your projects as well ass following those of your colleagues
+                ProLink allows you to share your succes, your career, your projects as well ass following those of your colleagues
             </p>
+            <p class="fs-3 fw-bold text-center">
+                Join and show us how far you can go
+            </p>
+            <p>We are the best app to expose your best realizations and leading the way to a better world</p>
         </div>
         <!-- Mention page -->
+        <div>
+            <h4>CONDITIONS D’UTILISATION</h4>
+            <p>
+                L’utilisation du présent site implique l’acceptation pleine et entière des conditions générales d’utilisation décrites ci-après. Ces conditions d’utilisation sont susceptibles d’être modifiées ou complétées à tout moment.
+            </p>
+            <h4>INFORMATIONS</h4>
+            <p>
+                Les informations et documents du site sont présentés à titre indicatif, n’ont pas de caractère exhaustif, et ne peuvent engager la responsabilité du propriétaire du site.
+            </p>
+            <p>
+                Le propriétaire du site ne peut être tenu responsable des dommages directs et indirects consécutifs à l’accès au site.
+            </p>
+            <h4>INTERACTIVITÉ</h4>
+            <p>
+                Les utilisateurs du site peuvent y déposer du contenu, apparaissant sur le site dans des espaces dédiés (notamment via les commentaires). Le contenu déposé reste sous la responsabilité de leurs auteurs, qui en assument pleinement l’entière responsabilité juridique. 
+            </p>
+            <p>
+                Le propriétaire du site se réserve néanmoins le droit de retirer sans préavis et sans justification tout contenu déposé par les utilisateurs qui ne satisferait pas à la charte déontologique du site ou à la législation en vigueur.
+            </p>
+            <h4>PROPRIÉTÉ INTELLECTUELLE</h4>
+            <p>
+            Sauf mention contraire, tous les éléments accessibles sur le site (textes, images, graphismes, logo, icônes, sons, logiciels, etc.) restent la propriété exclusive de leurs auteurs, en ce qui concerne les droits de propriété intellectuelle ou les droits d’usage.
+            </p>
+            <p>
+                Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de l’auteur.
+            </p>
+            <p>
+                Toute exploitation non autorisée du site ou de l’un quelconque des éléments qu’il contient est considérée comme constitutive d’une contrefaçon et passible de poursuites.
+            </p>
+            <p>
+                Les marques et logos reproduits sur le site sont déposés par les sociétés qui en sont propriétaires.
+            </p>
+            <h4>LIENS</h4>
+            <h5>Liens sortant</h5>
+            <p>
+                Le propriétaire du site décline toute responsabilité et n’est pas engagé par le référencement via des liens hypertextes, de ressources tierces présentes sur le réseau Internet, tant en ce qui concerne leur contenu que leur pertinence.
+            </p>
+            <h5>Liens entrant</h5>
+            <p>
+            Le propriétaire du site autorise les liens hypertextes vers l’une des pages de ce site, à condition que ceux-ci ouvrent une nouvelle fenêtre et soient présentés de manière non équivoque afin d’éviter :
+            </p>
+            <ul>
+                <li>tout risque de confusion entre le site citant et le propriétaire du site</li>
+                <li>ainsi que toute présentation tendancieuse, ou contraire aux lois en vigueur</li>
+            </ul>
+            <p>
+                Le propriétaire du site se réserve le droit de demander la suppression d’un lien s’il estime que le site source ne respecte pas les règles ainsi définies.
+            </p>
+            <h4>CONFIDENTIALITÉ</h4>
+            <p>
+                Tout utilisateur dispose d’un droit d’accès, de rectification et d’opposition aux données personnelles le concernant, en effectuant sa demande écrite et signée, accompagnée d’une preuve d’identité.
+            </p>
+            <p>
+                Le site ne recueille pas d’informations personnelles, et n’est pas assujetti à déclaration à la CNIL.
+            </p>
+            <h4>CRÉDITS</h4>
+            <p>
+                Voici nos crédits :
+            </p>
+        </div>
     </body>
 </html>
