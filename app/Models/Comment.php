@@ -5,23 +5,29 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Post extends Model
+class Comment extends Model
 {
-    use HasFactory, SoftDeletes, HasFactory;
+    use HasFactory;
 
     protected $fillable = [
-        'message',
-        'user_id'
+        'user_id',
+        'post_id',
+        'comment'
     ];
 
-    protected $appends = ['format_created_at'];
-
+    protected $append = [
+        'format_created_at'
+    ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function post()
+    {
+        return $this->hasOne(Post::class);
     }
 
     public function getFormatCreatedAtAttribute()
@@ -37,15 +43,10 @@ class Post extends Model
     public function liked(): bool
     {
         foreach ($this->likes as $like) {
-            if($like->post->id == $this->id) {
+            if($like->comment->id == $this->id) {
                 return true;
             }
         }
         return false;
-    }
-
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
     }
 }

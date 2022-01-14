@@ -19,8 +19,10 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::prefix('timeline')->name('timeline.')->middleware('auth')->group(function(){
     Route::get('/', [PostController::class, 'index'])->name('index');
-    Route::post('/like/{post_id}', [PostController::class, 'like'])->name('like');
+    Route::post('/like/post/{post_id}', [PostController::class, 'likePost'])->name('likePost');
+    Route::post('/like/comment/{comment_id}', [PostController::class, 'likeComment'])->name('likeComment');
     Route::post('/store', [PostController::class, 'store'])->name('store');
+    Route::post('/add_comment/{post_id}', [PostController::class, 'addComment'])->name('add_comment');
     Route::delete('/destroy/{post_id}', [PostController::class, 'destroy'])->name('destroy');
 });
 

@@ -6,7 +6,7 @@
         <p><span style="margin-right: 5%">{{ $post->user->name }}</span><span>{{ $post->format_created_at }}</span></p>
         <p>{{ $post->message }}</p>
         <div class="w-25">
-            <form action="{{ route('timeline.like', $post->id) }}" method="POST">
+            <form action="{{ route('timeline.likePost', $post->id) }}" method="POST">
                 @csrf
                 <button class="btn btn-outline-primary {{ $post->liked() ? 'unlikeBtn bg-primary' : 'likeBtn' }}" style="width: 20%;">
                     @if ($post->liked())
@@ -25,7 +25,7 @@
         <hr>
         <div class="d-flex align-items-center justify-content-between w-100"> 
             <div>
-                4 commentaires
+                {{ count($post->comments) }} commentaires
             </div>
             <div class="d-flex align-items-center justify-content-end">
                 @if ($post->user_id == Auth::user()->id)
@@ -39,23 +39,29 @@
                         </button>
                     </form>
                 @endif
-                <form action="{{ route('timeline.like', $post->id) }}" method="POST" class="border" style="width: 10%; height: 10%; margin-left: 15px">
-                    @csrf
-                    @method('PUT')
-                    <button class="btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" style="width: 100%" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-                          </svg>
-                    </button>
-                </form>
+                <button class="btn border showFormBtn" style="width: 10%; height: 10%; margin-left: 15px">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="width: 100%" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                      </svg>
+                </button>
             </div>
         </div>    
+        <div class="d-none commentForm w-100 mt-3">
+            <x-post-add-comment :post="$post"></x-post-add-comment>
+        </div>
     </div>
 </div>
 
 <script>
     var likeBtn = $(".likeBtn");
     var unlikeBtn = $(".unlikeBtn");
+    var showFormBtn = $('.showFormBtn')
+    var showCommentForm = false;
+
+    showFormBtn.click(function(){
+        $(this).parent().parent().parent().children().last().removeClass('d-none'); 
+        $(this).parent().parent().parent().children().last().addClass('d-block');
+    })
 
     likeBtn.mouseenter(function(){
         $(this).children().attr('stroke', 'white');

@@ -25,4 +25,9 @@ class Like extends Model
         return Post::find($this->likeable_id);
     }
 
+    public function getCommentAttribute()
+    {
+        return Comment::find($this->likeable_id);
+    }
+
 }

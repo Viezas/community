@@ -4,16 +4,18 @@ namespace App\View\Components\Post;
 
 use Illuminate\View\Component;
 
-class Form extends Component
+class CommentForm extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public $post;
+    
+    public function __construct($post)
     {
-        
+        $this->post = $post;
     }
 
     /**
@@ -23,6 +25,6 @@ class Form extends Component
      */
     public function render()
     {
-        return view('components.post.form');
+        return view('components.post.comment-form');
     }
 }
