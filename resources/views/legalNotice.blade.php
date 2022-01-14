@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Community</title>
+        <title>Community - Mentions légales</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -18,15 +18,28 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
-            h5 {
-                margin-left: 2rem;
+            .logo {
+                width: 2rem;
+                height: 2rem;
+                align-items: middle;
+                margin-right: 10px;
+            }
+            .mr05 {
+                margin-right: 2rem;
             }
         </style>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     </head>
-    <body class="m-4">
+    <body>
+        <x-nav></x-nav>
         <!-- Mention page -->
-        <div>
+        <div class="m-4">
+            <a href="{{ url()->previous() }}" class="d-flex align-items-center justify-content-start text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="logo" fill="none" viewBox="0 0 24 24" stroke="blue">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                </svg>
+                Retour
+            </a>
             <h2 class="text-center fw-bold">Legal Notices</h2>
             <h5>CONDITIONS D’UTILISATION</h5>
             <p>
@@ -88,5 +101,6 @@
             </p>
             <p>Aucun crédit n'est à déclaré à ce jour</p>
         </div>
+        <x-footer></x-footer>
     </body>
 </html>

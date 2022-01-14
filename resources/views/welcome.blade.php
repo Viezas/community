@@ -31,18 +31,7 @@
     </head>
     <body>
         <!-- Header -->
-        <div class="d-flex justify-content-between shadow-sm">
-            <div class="px-4 d-flex align-items-center">
-                <p class=" m-0 fw-bold text-primary">ProLink</p>
-            </div>
-            <nav class="d-flex">
-                <div class="d-flex justify-content-around">
-                    <button class="p-3 rounded mr-2"> Contact us</button>
-                    <button class="p-3 rounded mr-2"> Sign in</button>
-                    <button class="p-3 rounded"> Sign up</button>
-                </div>
-            </nav>
-        </div>
+        <x-nav></x-nav>
         <div class="mx-4">
             <!-- Home page -->
             <h1 class="m-4 fw-bold text-primary">We are ProLink</h1>
@@ -68,5 +57,6 @@
                 </button>
             </div>
         </div>
+        <x-footer></x-footer>
     </body>
 </html>
