@@ -9,7 +9,6 @@ use App\Models\Like;
 use App\Models\Media;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -27,13 +26,15 @@ class PostController extends Controller
             'message' => $validated['message'],
             'user_id' => Auth::user()->id
         ]);
-        foreach ($validated['photos'] as $photo) {
-            $name = time().rand(1,100).'.'.$photo->extension();
-            $photo->move(public_path().'/storage', $name); 
-            Media::create([
-                'post_id' => $post->id,
-                'name' => $name
-            ]);
+        if(isset($validated['photos'])) {
+            foreach ($validated['photos'] as $photo) {
+                $name = time().rand(1,100).'.'.$photo->extension();
+                $photo->move(public_path().'/storage', $name); 
+                Media::create([
+                    'post_id' => $post->id,
+                    'name' => $name
+                ]);
+            }
         }
         
         return back()->with('success', 'message posté !');

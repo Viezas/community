@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-
+use App\Models\Media;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -80,6 +80,23 @@ class AuthenticatedSessionController extends Controller
         else{
             return view('dashboard', ['user' => Auth::user(), 'updated' => false, 'customError' => 'Username and password cannot be empty']);
 
+        }
+
+        if(isset($request->photo)){
+            $medias = Media::where('user_id', Auth::user()->id)->get();
+            if($medias->count() > 0) {
+                foreach ($medias as $media) {
+                    unlink(public_path().'/storage/'.$media->name);
+                    $media->delete();
+                }
+            }
+
+            $name = time().rand(1,100).'.'.$request->photo->extension();
+            $request->photo->move(public_path().'/storage', $name); 
+            Media::create([
+                'user_id' => Auth::user()->id,
+                'name' => $name
+            ]);
         }
 
         $updatedDate = date('Y-m-d H:i:s');

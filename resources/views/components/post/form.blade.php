@@ -1,6 +1,6 @@
 <div class='border d-flex flex-col p-3 mb-4'>
     <div style="margin-right: 5%">
-        {{ __('user.profile_picture') }}
+        <div style="height: 100px; width: 100px; border-radius: 500px; background-image: url({{ Auth::user()->profilePicture != null ? asset('/storage/'.Auth::user()->profilePicture->name) : url('/img/default.png')  }}); background-size: cover; background-position: center;"></div>
     </div>
     <div class="w-100">
         <form action="{{ route('timeline.store') }}" method="POST" enctype="multipart/form-data">
