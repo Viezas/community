@@ -5,6 +5,11 @@
     <div class="w-100">
         <p><span style="margin-right: 5%">{{ $post->user->name }}</span><span>{{ $post->format_created_at }}</span></p>
         <p>{{ $post->message }}</p>
+        
+        @foreach ($post->medias as $media)
+            <img src="{{ asset("/storage/$media->name")}}" alt="img" class="w-25 mb-3">
+        @endforeach
+
         <div class="w-25">
             <form action="{{ route('timeline.likePost', $post->id) }}" method="POST">
                 @csrf

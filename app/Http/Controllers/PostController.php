@@ -6,24 +6,35 @@ use App\Http\Requests\AddCommentRequest;
 use App\Http\Requests\PostFormRequest;
 use App\Models\Comment;
 use App\Models\Like;
+use App\Models\Media;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('created_at')->with('user', 'comments.user')->get();
+        $posts = Post::orderBy('created_at', 'DESC')->with('user', 'comments.user', 'medias')->get();
         return view('post.index', compact('posts'));
     }
 
     public function store(PostFormRequest $request)
     {
         $validated = $request->validated();
-        Post::create([
+
+        $post = Post::create([
             'message' => $validated['message'],
             'user_id' => Auth::user()->id
         ]);
+        foreach ($validated['photos'] as $photo) {
+            $name = time().rand(1,100).'.'.$photo->extension();
+            $photo->move(public_path().'/storage', $name); 
+            Media::create([
+                'post_id' => $post->id,
+                'name' => $name
+            ]);
+        }
         
         return back()->with('success', 'message posté !');
     }
