@@ -21,7 +21,30 @@
         </style>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     </head>
-    <body>
-        <button type="button" class="btn btn-primary">Primary</button>
+    <body class="mx-4">
+    <div class="content">
+        <!-- Header -->
+            <div class="d-flex justify-content-between">
+                <div class="m-0 d-flex align-items-center">
+                    <p class="fw-bold">ProLink</p>
+                </div>
+                <nav class="d-flex">
+                    <div class="d-flex justify-content-around">
+                        <button class="p-3 rounded mr-2"> Sign in</button>
+                        <button class="p-3 rounded"> Sign up</button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Home page -->
+        <h1 class="m-4">We are ProLink</h1>
+        <div>
+            <p>We believe in a more connected world, where everyone can chat and collaborate remotely.</p>
+            <p>
+                Our web app will allow you to create your own personal community in order to improve the relationships, engagement, collaboration and productivity of your people.</br>
+                ProLink allows you to share your succes, your career in the company,your projects as well ass following those of your colleagues
+            </p>
+        </div>
+        <!-- Mention page -->
     </body>
 </html>
