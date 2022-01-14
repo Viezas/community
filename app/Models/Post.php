@@ -9,14 +9,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, HasFactory;
 
     protected $fillable = [
         'message',
         'user_id'
     ];
 
-    protected $appends = ['format_created_at'];
+    protected $appends = ['format_created_at', 'liked'];
 
 
     public function user()
@@ -27,5 +27,20 @@ class Post extends Model
     public function getFormatCreatedAtAttribute()
     {
         return Carbon::parse($this->created_at)->format('d/m/Y');
+    }
+
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
+    }
+
+    public function liked(): bool
+    {
+        foreach ($this->likes as $like) {
+            if($like->post->id == $this->id) {
+                return true;
+            }
+        }
+        return false;
     }
 }

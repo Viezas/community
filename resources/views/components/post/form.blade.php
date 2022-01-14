@@ -6,13 +6,13 @@
         <form action="{{ route('timeline.store') }}" method="POST">
             @csrf
 
-            <textarea name="message" id="message" rows="10" class="border w-100" style="resize: none;" placeholder="{{ __('form.placeholder') }}"></textarea>
+            <textarea name="message" id="message" rows="10" class="border w-100" style="resize: none;" placeholder="{{ __('post.form.placeholder') }}"></textarea>
             @if ($errors)
                 <p class="text-danger">{{ $errors->first('message') }}</p>
             @endif
 
             <div class="w-100 d-flex align-items-center justify-content-end">
-                <button type="submit" class="btn btn-primary">{{ __('form.send') }}</button>
+                <button type="submit" class="btn btn-primary">{{ __('post.form.send') }}</button>
             </div>
         </form>
     </div>

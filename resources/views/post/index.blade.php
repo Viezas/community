@@ -20,8 +20,14 @@
             }
         </style>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    </head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>      </head>
     <body class="container w-75">
+      @if (session('success'))
+        <div class="alert alert-success">
+          {{ session('success') }}
+        </div>
+      @endif
+
       <x-post-form></x-post-form>
       @foreach ($posts as $post)
         <x-post :post="$post"></x-post>

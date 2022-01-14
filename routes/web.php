@@ -17,7 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
-Route::prefix('timeline')->name('timeline.')->group(function(){
+Route::prefix('timeline')->name('timeline.')->middleware('auth')->group(function(){
     Route::get('/', [PostController::class, 'index'])->name('index');
+    Route::post('/like/{post_id}', [PostController::class, 'like'])->name('like');
     Route::post('/store', [PostController::class, 'store'])->name('store');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
