@@ -31,7 +31,28 @@
     </head>
     <body>
         <!-- Header -->
-        <x-nav></x-nav>
+        <div class="d-flex justify-content-between shadow-sm">
+            <div class="px-4 d-flex align-items-center justify-content-between w-25">
+                <a href="{{ route('index') }}" class="text-decoration-none m-0 fw-bold text-primary">ProLink</a>
+                @if (Auth::user())
+                    <a href="{{ route('timeline.index') }}" class="text-decoration-none m-0 fw-bold text-primary">Timeline</a>
+                @endif
+            </div>
+            <nav class="d-flex">
+                <div class="d-flex justify-content-around">
+                    @if (!Auth::user())
+                        <a href="{{ route('login') }}" class="btn bg-light p-3 rounded mr-2">Sign in</a>
+                        <a href="{{ route('register') }}" class="btn bg-light p-3 rounded mr-2">Sign up</a>
+                    @else
+                        <a href="{{ route('dashboard') }}" class="btn bg-light p-3 rounded mr-2">Dashboard</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button class="btn bg-light p-3 rounded mr-2">{{ __('Log Out') }}</button>
+                        </form>
+                    @endif
+                </div>
+            </nav>
+        </div>
         <div class="mx-4">
             <!-- Home page -->
             <h1 class="m-4 fw-bold text-primary">We are ProLink</h1>
@@ -57,6 +78,15 @@
                 </button>
             </div>
         </div>
-        <x-footer></x-footer>
+        <div class="px-5 border mt-5 py-5 d-flex align-items-center justify-items-center">
+            <div>
+                <a href="{{ route('leaglNotice') }}" class="">Mentions légales</a><br>
+                <span>Conditions d'utilisation</span>
+            </div>
+            <div style="margin-left: 50px">
+                <span>Nous contacter</span><br>
+                <span>Conditions d'utilisation</span>
+            </div>
+        </div>
     </body>
 </html>
